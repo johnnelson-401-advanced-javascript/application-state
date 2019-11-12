@@ -14,5 +14,4 @@ const getFace = state => {
   return '😀';
 };
 
-
 export default getFace;
