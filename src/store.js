@@ -1,13 +1,13 @@
 import { createStore } from 'redux';
 
-const inititalState = {
+const initialState = {
   coffees: 0,
   snacks: 0,
   naps: 0,
   studies: 0
 };
 
-function reducer(state = inititalState, action) {
+function reducer(state = initialState, action) {
   switch(action.type) {
     case 'DRINK_COFFEE':
       return { ...state, coffees: state.coffees + 1 };

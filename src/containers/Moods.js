@@ -9,8 +9,6 @@ import controlActions from '../components/actions/Actions';
 
 const Moods = ({ coffees, snacks, naps, studies, handleSelection }) => {
   const face = getFace({ coffees, snacks, naps, studies });
-  
-  //map through actions to get count.
   return (
     <>
       <Controls actions={controlActions} handleSelection={handleSelection} />
@@ -18,6 +16,7 @@ const Moods = ({ coffees, snacks, naps, studies, handleSelection }) => {
     </>
   );
 };
+
 
 Moods.propTypes = {
   coffees: PropTypes.number,
