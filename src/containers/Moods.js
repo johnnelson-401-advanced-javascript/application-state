@@ -4,11 +4,14 @@ import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
 import PropTypes from 'prop-types';
 import getFace from '../components/face/GetFace';
-import controlActions from '../components/actions/Actions';
+import actions from '../actions/moodActions';
 
-
-const Moods = ({ coffees, snacks, naps, studies, handleSelection }) => {
-  const face = getFace({ coffees, snacks, naps, studies });
+const Moods = ({ state, handleSelection }) => {
+  const face = getFace(state);
+  const controlActions = actions.map(action => ({
+    ...action,
+    count: state[action.stateName]
+  }));
   return (
     <>
       <Controls actions={controlActions} handleSelection={handleSelection} />
@@ -17,21 +20,18 @@ const Moods = ({ coffees, snacks, naps, studies, handleSelection }) => {
   );
 };
 
-
 Moods.propTypes = {
-  coffees: PropTypes.number,
-  snacks: PropTypes.number,
-  naps: PropTypes.number,
-  studies: PropTypes.number,
+  state: PropTypes.object,
   handleSelection: PropTypes.func,
 };
 
 const mapStateToProps = state => ({
-  coffees: state.coffees,
-  snacks: state.snacks,
-  naps: state.naps,
-  studies: state.studies
-});
+  state: {
+    coffees: state.moodReducer.coffees,
+    snacks: state.moodReducer.snacks,
+    naps: state.moodReducer.naps,
+    studies: state.moodReducer.studies
+  } });
 
 const mapDispatchToProps = dispatch => ({
   handleSelection(name) {
