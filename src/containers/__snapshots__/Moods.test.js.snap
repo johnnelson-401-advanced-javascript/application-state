@@ -5,10 +5,15 @@ exports[`Moods container matches a snapshot 1`] = `
   value={null}
 >
   <Moods
-    coffees={0}
     handleSelection={[Function]}
-    naps={0}
-    snacks={0}
+    state={
+      Object {
+        "coffees": 0,
+        "naps": 0,
+        "snacks": 0,
+        "studies": 0,
+      }
+    }
     store={
       Object {
         "dispatch": [Function],
@@ -18,7 +23,6 @@ exports[`Moods container matches a snapshot 1`] = `
         Symbol(observable): [Function],
       }
     }
-    studies={0}
   />
 </ContextProvider>
 `;
