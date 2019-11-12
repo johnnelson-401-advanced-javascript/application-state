@@ -1,9 +1,8 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import getFace, { isTired, isHyper, isEducated, isHungry } from '../components/face/GetFace';
 import Moods from '../containers/Moods';
 import store from '../store';
-import MoodContainer from '../containers/Moods';
 
 describe('Moods', () => {
   describe('mood selectors', () => {
