@@ -1,7 +1,9 @@
-export const isTired = state => state.coffees < 1 && state.naps < 1;
-export const isHyper = state => state.coffees > 3;
-export const isEducated = state => state.studies > 2;
-export const isHungry = state => state.snacks < 1;
+import { getCoffees, getSnacks, getNaps, getStudies } from '../../selectors/moodSelectors';
+
+export const isTired = state => getCoffees(state) < 1 && getNaps(state) < 1;
+export const isHyper = state => getCoffees(state) > 3;
+export const isEducated = state => getStudies(state) > 2;
+export const isHungry = state => getSnacks(state) < 1;
 
 const getFace = state => {
   if(isTired(state) && isHungry(state)) return '🤬';

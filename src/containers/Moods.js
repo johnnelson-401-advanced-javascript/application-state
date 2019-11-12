@@ -2,38 +2,33 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
-import PropTypes from 'prop-types';
 import getFace from '../components/face/GetFace';
-import actions from '../actions/moodActions';
 import { getCoffees, getSnacks, getNaps, getStudies, getWalks } from '../selectors/moodSelectors';
 
-const Moods = ({ state, handleSelection }) => {
-  const face = getFace(state);
-  const controlActions = actions.map(action => ({
-    ...action,
-    count: state[action.stateName]
-  }));
+// eslint-disable-next-line react/prop-types
+const Moods = ({ controlActions, emoji, handleSelection }) => {
   return (
     <>
       <Controls actions={controlActions} handleSelection={handleSelection} />
-      <Face emoji={face} />
+      <Face emoji={emoji} />
     </>
   );
 };
 
-Moods.propTypes = {
-  state: PropTypes.object,
-  handleSelection: PropTypes.func,
-};
+const actions = [
+  { name: 'DRINK_COFFEE', text: 'Drink Coffee', stateName: 'coffees' },
+  { name: 'EAT_SNACK', text: 'Snack', stateName: 'snacks' },
+  { name: 'TAKE_NAP', text: 'Nap', stateName: 'naps' },
+  { name: 'STUDY', text: 'Study', stateName: 'studies' },
+  { name: 'WALK', text: 'Take a Walk', stateName: 'walks' }
+];
 
 const mapStateToProps = state => ({
-  state: {
-    coffees: getCoffees(state),
-    snacks: getSnacks(state),
-    naps: getNaps(state),
-    studies: getStudies(state),
-    walks: getWalks(state)
-  } });
+  emoji: getFace(state),
+  controlActions: actions.map(action => 
+    ({ ...action, count: state[action.stateName] }))
+});
+
 
 const mapDispatchToProps = dispatch => ({
   handleSelection(name) {
@@ -41,11 +36,9 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-const MoodContainer = connect(
+export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(Moods);
-
-export default MoodContainer;
 
 
