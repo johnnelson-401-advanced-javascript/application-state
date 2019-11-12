@@ -9,4 +9,6 @@ const actions = [
 
 export default actions;
 
+// Make these Dispatch actions instead of just holding button values. 
+
 

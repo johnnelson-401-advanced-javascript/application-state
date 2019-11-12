@@ -17,7 +17,7 @@ export default function moodReducer(state = initialState, action) {
     case 'STUDY':
       return { ...state, studies: state.studies + 1 };
     case 'WALK':
-      return { ...state, walks: state.walks + 1, coffees: state.coffees - 1 };
+      return { ...state, walks: state.walks + 1, coffees: (state.coffees > 0 ? state.coffees - 1 : state.coffees) };
     default:
       // eslint-disable-next-line no-console
       console.log(`unhandled name: ${action.type}`);
