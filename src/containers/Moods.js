@@ -5,6 +5,7 @@ import Face from '../components/face/Face';
 import PropTypes from 'prop-types';
 import getFace from '../components/face/GetFace';
 import actions from '../actions/moodActions';
+import { getCoffees, getSnacks, getNaps, getStudies } from '../selectors/moodSelectors';
 
 const Moods = ({ state, handleSelection }) => {
   const face = getFace(state);
@@ -27,10 +28,10 @@ Moods.propTypes = {
 
 const mapStateToProps = state => ({
   state: {
-    coffees: state.moodReducer.coffees,
-    snacks: state.moodReducer.snacks,
-    naps: state.moodReducer.naps,
-    studies: state.moodReducer.studies
+    coffees: getCoffees(state),
+    snacks: getSnacks(state),
+    naps: getNaps(state),
+    studies: getStudies(state)
   } });
 
 const mapDispatchToProps = dispatch => ({
