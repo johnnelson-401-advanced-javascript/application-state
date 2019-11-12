@@ -4,6 +4,7 @@ const actions = [
   { name: 'EAT_SNACK', text: 'Snack', stateName: 'snacks' },
   { name: 'TAKE_NAP', text: 'Nap', stateName: 'naps' },
   { name: 'STUDY', text: 'Study', stateName: 'studies' },
+  { name: 'WALK', text: 'Take a Walk', stateName: 'walks' }
 ];
 
 export default actions;
