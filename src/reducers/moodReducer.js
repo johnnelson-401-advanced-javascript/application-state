@@ -20,7 +20,11 @@ export default function moodReducer(state = initialState, action) {
     case STUDY:
       return { ...state, studies: state.studies + 1 };
     case WALK:
-      return { ...state, walks: state.walks + 1, coffees: (state.coffees > 0 ? state.coffees - 1 : state.coffees) };
+      return { 
+        ...state, walks: state.walks + 1,
+        coffees: (state.coffees > 0 ? state.coffees - 1 : state.coffees), 
+        naps: (state.naps > 0 ? state.naps - 1 : state.naps) 
+      };
     case RESET:
       return initialState;
     default:
