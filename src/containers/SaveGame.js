@@ -1,33 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import SaveGameDisplay from '../components/SavedGames/SaveGame';
+// import { handleLoad, handleSave } from '../selectors/savedGames';
 
-const SaveGame = ({ id, handleSave }) => {
+const SaveGameContainer = ({ games, handleSave, handleLoad }) => {
   return (
-    <section>
-      <button key={id} onClick={() => handleSave(id)}></button>
-
-    </section>
+    <SaveGameDisplay 
+      games={games} 
+      handleSave={handleSave} 
+      handleLoad={handleLoad}
+    />
   );
 };
 
-SaveGame.propTypes = {
-  id: PropTypes.string,
-  handleSave: PropTypes.func.isRequired
+SaveGameContainer.propTypes = {
+  games: PropTypes.object,
+  handleSave: PropTypes.func.isRequired,
+  handleLoad: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  id: state.id
-
+  games: state
 });
 
 const mapDispatchToProps = dispatch => ({
-  handleSave(state) {
-    dispatch({ type: SaveGame, payload: state });
+  handleSave({ state }) {
+    dispatch({ type: 'SAVE_GAME', state });
+  },
+  handleLoad({ state }) {
+    dispatch({ type: 'LOAD_GAME', state });
   }
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(SaveGame);
+)(SaveGameContainer);

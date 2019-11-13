@@ -1,3 +1,5 @@
+import { SAVE_GAME, LOAD_GAME } from '../actions/gameActions';
+
 const initialState = [
   {
     savedGame: {
@@ -11,10 +13,10 @@ const initialState = [
 
 export default function saveGameReducer(state = initialState, action) {
   switch(action.type) {
-    case 'SAVE_GAME':
+    case SAVE_GAME:
       return [...state, action.payload];
-    case 'LOAD_GAME':
-      return state = { ...state };
+    case LOAD_GAME:
+      return state = [...state, action.payload];
     default:
       return state;
   }
