@@ -4,6 +4,7 @@ import Controls from '../components/controls/Controls';
 import Face from '../components/face/Face';
 import getFace from '../components/face/GetFace';
 import { getActions } from '../selectors/moodSelectors';
+import PropTypes from 'prop-types';
 
 // eslint-disable-next-line react/prop-types
 const Moods = ({ actions, emoji, handleSelection }) => {
@@ -13,6 +14,11 @@ const Moods = ({ actions, emoji, handleSelection }) => {
       <Face emoji={emoji} />
     </>
   );
+};
+
+Moods.propTypes = {
+  actions: PropTypes.array.isRequired,
+  emoji: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
