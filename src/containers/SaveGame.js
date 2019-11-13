@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 const SaveGame = ({ id, handleSave }) => {
   return (
@@ -8,6 +9,11 @@ const SaveGame = ({ id, handleSave }) => {
 
     </section>
   );
+};
+
+SaveGame.propTypes = {
+  id: PropTypes.string,
+  handleSave: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
