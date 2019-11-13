@@ -5,15 +5,40 @@ exports[`Moods container matches a snapshot 1`] = `
   value={null}
 >
   <Moods
-    handleSelection={[Function]}
-    state={
-      Object {
-        "coffees": 0,
-        "naps": 0,
-        "snacks": 0,
-        "studies": 0,
-      }
+    actions={
+      Array [
+        Object {
+          "count": 0,
+          "name": "DRINK_COFFEE",
+          "text": "Drink Coffee",
+        },
+        Object {
+          "count": 0,
+          "name": "EAT_SNACK",
+          "text": "Snack",
+        },
+        Object {
+          "count": 0,
+          "name": "TAKE_NAP",
+          "text": "Nap",
+        },
+        Object {
+          "count": 0,
+          "name": "STUDY",
+          "text": "Study",
+        },
+        Object {
+          "count": 0,
+          "name": "WALK",
+          "text": "Take a Walk",
+        },
+        Object {
+          "name": "RESET",
+        },
+      ]
     }
+    emoji="🤬"
+    handleSelection={[Function]}
     store={
       Object {
         "dispatch": [Function],

@@ -5,8 +5,8 @@ export const SavedGameDisplay = ({ games, saveGame, loadGame }) => (
   <section>
     {games.map(({ savedGame }) =>
       <>
-        <button key={savedGame.id} onClick={() => saveGame(savedGame)}>SAVE</button>
-        <button key={savedGame.id} onClick={() => loadGame(savedGame)}>LOAD{savedGame}</button>
+        <button key={savedGame} onClick={() => saveGame(savedGame)}>SAVE</button>
+        <button key={savedGame} onClick={() => loadGame(savedGame)}>LOAD{savedGame}</button>
       </>
     )});
   </section>
