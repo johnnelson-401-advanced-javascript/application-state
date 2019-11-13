@@ -1,4 +1,4 @@
-import { DRINK_COFFEE, EAT_SNACK, TAKE_NAP, STUDY, WALK } from '../actions/moodActions';
+import { DRINK_COFFEE, EAT_SNACK, TAKE_NAP, STUDY, WALK, RESET } from '../actions/moodActions';
 
 
 const initialState = {
@@ -21,6 +21,8 @@ export default function moodReducer(state = initialState, action) {
       return { ...state, studies: state.studies + 1 };
     case WALK:
       return { ...state, walks: state.walks + 1, coffees: (state.coffees > 0 ? state.coffees - 1 : state.coffees) };
+    case RESET:
+      return initialState;
     default:
       return state;
   }

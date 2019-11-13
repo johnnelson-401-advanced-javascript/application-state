@@ -23,4 +23,9 @@ export const walk = () => ({
   type: walk
 });
 
+export const RESET = 'RESET';
+export const resetGame = () => ({
+  type: RESET
+});
+
 
