@@ -5,6 +5,7 @@ import Face from '../components/face/Face';
 import getFace from '../components/face/GetFace';
 import { getActions } from '../selectors/moodSelectors';
 import PropTypes from 'prop-types';
+// import SaveGameContainer from '../containers/SaveGameContainer';
 
 // eslint-disable-next-line react/prop-types
 const Moods = ({ actions, emoji, handleSelection }) => {
@@ -12,6 +13,7 @@ const Moods = ({ actions, emoji, handleSelection }) => {
     <>
       <Controls actions={actions} handleSelection={handleSelection} />
       <Face emoji={emoji} />
+      {/* <SaveGameContainer /> */}
     </>
   );
 };

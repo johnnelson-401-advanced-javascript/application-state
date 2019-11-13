@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 export const SavedGameDisplay = ({ games, saveGame, loadGame }) => (
   <section>
-    {games.map(({ savedGame, id }) =>
+    {games.map(({ savedGame }) =>
       <>
-        <button key={id} onClick={() => saveGame(savedGame)}></button>
-        <button key={id} onClick={() => loadGame(savedGame)}></button>
+        <button key={savedGame.id} onClick={() => saveGame(savedGame)}>SAVE</button>
+        <button key={savedGame.id} onClick={() => loadGame(savedGame)}>LOAD{savedGame}</button>
       </>
     )});
   </section>
