@@ -18,7 +18,7 @@ const Moods = ({ actions, emoji, handleSelection }) => {
 
 Moods.propTypes = {
   actions: PropTypes.array.isRequired,
-  emoji: PropTypes.func.isRequired
+  emoji: PropTypes.string.isRequired
 };
 
 const mapStateToProps = state => ({

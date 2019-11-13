@@ -12,5 +12,7 @@ export default function saveGameReducer(state = initialState, action) {
       return { ...state };
     case 'LOAD_GAME':
       return state = { ...state };
+    default:
+      return state;
   }
 }
